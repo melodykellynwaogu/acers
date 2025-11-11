@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google-site-verification" content="2rgDlfAFb57bcx8nW--jxTQBHM4CmyHF8XozJciKH88" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Xlorin is an intelligent AI assistant specializing in cybersecurity, physics, and real-time web search.">
+  <link rel="icon" type="image/png" href="images/xlorin-logo.jpeg">
+  <title>Xlorin - Your Intelligent AI Assistant</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <!-- Header & Navbar -->
+    <header class="main-header">
+      <div class="logo">
+        <!-- Image Placeholder -->
+        <div class="logo-placeholder">
+          <img class="logo-placeholder" src="/xlorin.com/images/xlorin-logo.jpeg" alt="">
+        </div>
+        <span>Xlorin</span>
+      </div>
+      <nav class="main-nav">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="https://xlorin-blog.vercel.app/">Blog</a></li>
+        </ul>
+      </nav>
+      <a href="https://xlorin.vercel.app" target="_blank" class="cta-button">Try Xlorin</a>
+      <div class="menu-toggle" id="mobileMenu">&#9776;</div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section id="home" class="hero">
+        <div class="hero-content">
+          <h1>Your Intelligent Assistant for Complex Questions</h1>
+          <p class="subtitle">From <span class="typing-effect"></span></p>
+          <a href="https://xlorin.vercel.app" target="_blank" class="cta-button large">Get Started</a>
+        </div>
+        <div class="hero-image-placeholder">
+          <img class="xlorin-img" src="/xlorin.com/images/pic.png" alt="">
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="about-section content-section">
+        <h2>What is Xlorin?</h2>
+        <p>Xlorin is an advanced AI chatbot designed Xlorin Team. It started as a specialized cybersecurity assistant and has grown to master new domains like physics and real-time web search. Xlorin uses sophisticated embeddings and keyword analysis to provide accurate, context-aware answers, making it a powerful tool for developers, students, and curious minds.</p>
+      </section>
+
+      <!-- Features Section -->
+      <section id="features" class="features-section content-section">
+        <h2>Core Capabilities</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon-placeholder"></div>
+            <h3>Cybersecurity Expert</h3>
+            <p>Ask about vulnerabilities, malware, network protocols, and security tools like Nmap and Shodan.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon-placeholder"></div>
+            <h3>Physics Tutor</h3>
+            <p>Understand complex topics from Newton's Laws of Motion to Einstein's theory of relativity (E=mc²).</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon-placeholder"></div>
+            <h3>Real-Time Web Search</h3>
+            <p>Leverages search APIs to provide up-to-the-minute information on any topic you ask about.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+      <p>&copy; 2025 Xlorin. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenu = document.getElementById('mobileMenu');
+    const navLinks = document.getElementById('navLinks');
+    mobileMenu.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Intersection Observer for content sections to fade in on scroll
+    const sections = document.querySelectorAll('.content-section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    sections.forEach(section => observer.observe(section));
+
+    // Typing effect for hero subtitle
+    const typingElement = document.querySelector('.typing-effect');
+    const words = ['Cybersecurity Threats', 'Quantum Physics', 'Real-time Events', 'Complex Code'];
+    let wordIndex = 0;
+    let charIndex = 0;
+
+    function type() {
+      if (charIndex < words[wordIndex].length) {
+        typingElement.textContent += words[wordIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(type, 100);
+      } else {
+        setTimeout(erase, 2000);
+      }
+    }
+
+    function erase() {
+      if (charIndex > 0) {
+        typingElement.textContent = words[wordIndex].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(erase, 50);
+      } else {
+        wordIndex = (wordIndex + 1) % words.length;
+        setTimeout(type, 500);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => setTimeout(type, 500));
+  </script>
+</body>
+</html>
