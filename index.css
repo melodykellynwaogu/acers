@@ -137,8 +137,8 @@ ul {
   0%   { background-image: url('images/ivon.jpg'); }
   33%  { background-image: url('images/ivon2.jpg'); }
   50%  { background-image: url('images/ivon5.jpg'); }
-  55%  { background-image: url('images/ivon6.jpg'); }
-  66%  { background-image: url('images/ivon3.jpg'); }
+  60%  { background-image: url('images/ivon6.jpg'); }
+  70%  { background-image: url('images/ivon3.jpg'); }
   100% { background-image: url('images/ivon4.jpg'); }
 }
 
